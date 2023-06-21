@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.min.css">
+  <title>21</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="title">Добро пожаловать в игру <span>21</span></h1>
+    <div class="ballance">
+      <ul class="ballance__list">
+        <li class="ballance__item">
+          <p class="ballance__text">Ваш ставка:</p>
+          <input class="ballance__input ballance__number" id="input-bet" type="number" min="0" required>
+        </li>
+        <li class="ballance__item">
+          <p class="ballance__text">Ваш баланс:</p>
+          <span class="ballance__cash ballance__number ballance__number--currency" id="your-cash">100</span>
+        </li>
+      </ul>
+    </div>
+    <div class="result">
+      <div class="result__player">
+        <h2 class="result__title">Ваше число:</h2>
+        <span class="result__span" id="result-player"></span>
+      </div>
+      <div class="result__game" id="result-game">
+        <h2 class="result__title">Результат игры:</h2>
+        <span class="result__span" id="result-game"></span>
+      </div>
+      <div class="result__pc">
+        <h2 class="result__title">Число компьютера:</h2>
+        <span class="result__span" id="result-pc"></span>
+      </div>
+    </div>
+    <div class="btns">
+      <ul class="btns__list">
+        <li class="btns__item">
+          <button class="btn btn-get" id="get-card" type="button">Взять карту</button>
+        </li>
+        <li class="btns__item">
+          <button class="btn btn-stop" id="stop" type="button">Ход компьютера</button>
+        </li>
+        <li class="btns__item">
+          <button class="btn btn-new-game" id="new-game" type="button">Новая игра</button>
+        </li>
+        <button class="btn btn-restart" id="restart">Начни заново</button>
+      </ul>
+    </div>
+  </div>
+
+
+
+  <script src="main.js"></script>
+</body>
+
+</html>

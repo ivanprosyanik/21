@@ -1,0 +1,108 @@
+@import 'reset';
+@import 'vars';
+@import 'global';
+@import 'mixins';
+
+
+.title {
+  text-align: center;
+  padding-top: 30px;
+  margin-bottom: 40px;
+  font-weight: 500;
+
+  span {
+    font-weight: 700;
+  }
+}
+
+.ballance {
+  margin-bottom: 35px;
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  &__text,
+  &__number {
+    font-weight: 500;
+  }
+
+  &__number {
+    width: 100%;
+    text-align: center;
+    display: block;
+    padding: 10px;
+    border: 1px solid #000;
+
+    &--currency {
+      &::after {
+        content: '€';
+        margin-left: 15px;
+      }
+    }
+  }
+}
+
+.result {
+  margin-bottom: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__player,
+  &__pc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  &__span {
+    width: 240px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #000;
+    color: #000;
+    font-size: 70px;
+  }
+
+  &__game {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(50%);
+    transition: position .3s ease-in-out, opacity .3s ease-in-out, visibility .3s ease-in-out, transform .3s ease-in-out;
+
+    &.active {
+      position: relative;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition: position .3s ease-in-out, opacity .3s ease-in-out, visibility .3s ease-in-out, transform .3s ease-in-out;
+    }
+  }
+}
+
+.btns {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+  }
+}
