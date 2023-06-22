@@ -47,8 +47,12 @@ function playLose(number) {
     resultGame.textContent = 'Вы проиграли';
     btnGetCard.disabled = true;
     btnStop.disabled = true;
-    btnNewGame.disabled = true;
-    restartGame.classList.add('active');
+
+    if(playerMoney == 0) {
+      restartGame.classList.add('active');
+      restartGame.scrollIntoView({ behavior: 'smooth' });
+      btnNewGame.disabled = true;
+    }
   }
 };
 

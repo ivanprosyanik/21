@@ -1,13 +1,13 @@
 @import 'reset';
 @import 'vars';
-@import 'global';
 @import 'mixins';
+@import 'global';
 
 
 .title {
   text-align: center;
-  padding-top: 30px;
-  margin-bottom: 40px;
+  padding-top: 20px;
+  margin-bottom: 30px;
   font-weight: 500;
 
   span {
@@ -57,6 +57,11 @@
   justify-content: space-between;
   align-items: center;
 
+  @include r($phone) {
+    flex-direction: column;
+    gap: 35px;
+  }
+
   &__player,
   &__pc {
     display: flex;
@@ -65,19 +70,19 @@
   }
 
   &__title {
-    font-size: 30px;
+    font-size: size(30, 18);
     margin-bottom: 20px;
   }
 
   &__span {
-    width: 240px;
-    height: 200px;
+    width: size(240, 140);
+    height: size(200, 100);
     display: flex;
     justify-content: center;
     align-items: center;
     border: 2px solid #000;
     color: #000;
-    font-size: 70px;
+    font-size: size(70, 35);
   }
 
   &__game {
@@ -104,5 +109,14 @@
     justify-content: center;
     gap: 20px;
     align-items: center;
+  }
+
+  &__item {
+    &:nth-child(1),
+    &:nth-child(2) {
+      @include r($phone) {
+        margin: 0 auto;
+      }
+    }
   }
 }
