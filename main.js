@@ -21,6 +21,8 @@ let computerNumber = 0;
 betInput.min = 1;
 betInput.max = playerMoney;
 
+// console.log(typeof betInput.value);
+
 function getCard() {
   let card = coloda[Math.floor(Math.random() * coloda.length)];
   return card
@@ -41,9 +43,12 @@ function player() {
 function playLose(number) {
   if (number > 21) {
     // console.log('You lose');
+    resultGame.classList.add('active');
     resultGame.textContent = 'Вы проиграли';
     btnGetCard.disabled = true;
     btnStop.disabled = true;
+    btnNewGame.disabled = true;
+    restartGame.classList.add('active');
   }
 };
 
@@ -67,9 +72,9 @@ function checkCards() {
     };
   } else if (computerNumber == playerCard && computerNumber <= 21) {
     console.log('This is draw!');
-    resultGame.classList.add('active')
+    resultGame.classList.add('active');
     resultGame.textContent = 'Ничья!';
-    playerMoney += betInput.value;
+    playerMoney += parseInt(betInput.value);
     cash.textContent = playerMoney;
   } else if (playerCard > computerNumber && playerCard <= 21 || computerNumber > 21) {
     console.log('You win');
@@ -103,10 +108,10 @@ function newGame() {
 
 btnGetCard.addEventListener('click', () => {
   if (betInput.value < 0 && bet == 0) {
-    alert('Введите коректное число')
+    alert('Введите коректное число!');
     betInput.value = 1;
   } else if (betInput.value > playerMoney && bet == 0) {
-    alert('У вас недостаточно денег! 1')
+    alert('У вас недостаточно денег!')
   } else {
     player();
   }

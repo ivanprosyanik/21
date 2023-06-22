@@ -31,6 +31,8 @@ body {
 
   &:disabled {
     cursor: default;
+    background-color: #dcdcdc;
+    color: #626262;
   }
 
   &-restart {
