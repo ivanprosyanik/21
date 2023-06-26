@@ -4,6 +4,8 @@ const btnGetCard = document.getElementById('get-card');
 const btnStop = document.getElementById('stop');
 const btnNewGame = document.getElementById('new-game');
 const restartGame = document.getElementById('restart');
+const soundWin = document.getElementById('sound-win');
+const soundLose = document.getElementById('sound-lose');
 
 const betInput = document.getElementById('input-bet');
 const cash = document.getElementById('your-cash');
@@ -47,8 +49,9 @@ function playLose(number) {
     resultGame.textContent = 'Вы проиграли';
     btnGetCard.disabled = true;
     btnStop.disabled = true;
+    soundLose.play()
 
-    if(playerMoney == 0) {
+    if (playerMoney == 0) {
       restartGame.classList.add('active');
       restartGame.scrollIntoView({ behavior: 'smooth' });
       btnNewGame.disabled = true;
@@ -70,9 +73,11 @@ function checkCards() {
     // console.log('You lose');
     resultGame.classList.add('active')
     resultGame.textContent = 'Вы проиграли';
+    soundLose.play()
     if (playerMoney <= 0) {
       restartGame.classList.add('active');
       btnNewGame.disabled = true;
+      soundLose.play()
     };
   } else if (computerNumber == playerCard && computerNumber <= 21) {
     console.log('This is draw!');
@@ -83,6 +88,7 @@ function checkCards() {
   } else if (playerCard > computerNumber && playerCard <= 21 || computerNumber > 21) {
     console.log('You win');
     resultGame.classList.add('active')
+    soundWin.play()
     resultGame.textContent = 'Победа!';
     let winMoney = betInput.value * 2;
     playerMoney += winMoney;
